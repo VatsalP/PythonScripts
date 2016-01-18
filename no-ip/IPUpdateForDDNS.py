@@ -22,7 +22,7 @@ import requests
 def main():
 	try:
 		#####################################################
-		#	 		Parsing of command line options			#
+		#        Parsing of command line options	    #
 		#####################################################
 		parser = argparse.ArgumentParser(
 			description='Syncs your current IP with you no-ip host or domain'
@@ -43,7 +43,7 @@ def main():
 		
 		
 		#####################################################
-		#	 Creation of log file and finding the public	#
+		#    Creation of log file and finding the public    #
 		#####################################################
 		logging.basicConfig(filename='no-ip.log',level=logging.INFO)
 		ip = requests.get('https://api.ipify.org').text
@@ -52,7 +52,7 @@ def main():
 		
 		
 		#####################################################
-		#	 		Updating and logging the result			#
+		#	  Updating and logging the result	    #
 		#####################################################
 		url = "http://{}:{}@dynupdate.no-ip.com/nic/update?hostname={}&myip={}".format(username, password, dname, ip)
 		r = requests.get(url)
