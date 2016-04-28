@@ -4,7 +4,6 @@ from sys import argv
 def convert(word):
     if word[0] in "aeiouAEIOU":
         pigWord = word + "way"
-        print(pigWord)
         return pigWord
     else:
         pigWord = ""
@@ -12,7 +11,6 @@ def convert(word):
         for ch in word:
             if ch in "aeiouAEIOU":
                 pigWord = word[count:] + word[0:count] + "ay"
-                print(pigWord)
                 return pigWord
             else:
                 count += 1
@@ -21,7 +19,6 @@ def main():
     try:
         textToConvert = argv[1]
         words = list(textToConvert.split(" "))
-        print(words)
         pigified = ""
         for word in words:
             word = convert(word)
