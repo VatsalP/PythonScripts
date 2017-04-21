@@ -2,7 +2,7 @@
 
 Simple script to download top wallpaper from
 /r/wallpaper and set it as desktop wallpaper
-in LXDE
+in LXDE & XFCE
 """
 import os
 import shlex
@@ -20,15 +20,29 @@ def main():
     r = praw.Reddit(user_agent='Wallpaper Downloader')
     url = next(r.get_subreddit('wallpaper').get_top_from_day(limit=1)).url
     req = requests.get(url, stream=True)
-    dir = Path(os.getenv("HOME") + "/wallpapers/")
-    if not dir.exists():
-        dir.mkdir()
+    directory = Path(os.getenv("HOME") + "/Pictures/Wallpapers/")
+    if not directory.exists():
+        directory.mkdirectory()
     current_time = date.isoformat(datetime.now())
-    dir = dir / os.path.basename(current_time)
-    with open(str(dir), 'wb') as f:
+    directory = directory / os.path.basename(current_time)
+    with open(str(directory), 'wb') as f:
         shutil.copyfileobj(req.raw, f)
-    args = shlex.split(
-        "pcmanfm -w --set-wallpaper={}".format(str(dir))
+    output = subprocess.run(
+        "ls /usr/bin/*session",
+        shell=True,
+        stdout=subprocess.PIPE,
+        universal_newlines=True
+        )
+    if 'lxsession' in output.stdout:
+        args = shlex.split(
+            "pcmanfm -w --set-wallpaper={}".format(str(directory))
+            )
+    elif 'xfce4-session' in output.stdout:
+        #check xfconf-query -c xfce4-desktop -p /backdrop -lv
+        args = shlex.split(
+            "xfconf-query -c xfce4-desktop -p " +
+            "/backdrop/screen0/monitor0/workspace0/last-image  -s {}"
+            .format(str(directory))
         )
     subprocess.Popen(args)
 
