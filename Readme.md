@@ -22,7 +22,7 @@ Convert normal english into piglatin.
 Read more here: http://users.snowcrest.net/donnelly/piglatin.html
 
 ## wallpaperchanger
-Changes current wallpaper with top wallpaper from /r/wallpaper.
-Works only with LXDE.
+Changes current wallpaper with top wallpaper from subreddit of choice.
+Works with XFCE and LXDE.
 
 Need praw and requests installed
