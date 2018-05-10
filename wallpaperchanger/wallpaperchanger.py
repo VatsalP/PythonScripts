@@ -22,7 +22,7 @@ def main():
     req = requests.get(url, stream=True)
     directory = Path(os.getenv("HOME") + "/Pictures/Wallpapers/")
     if not directory.exists():
-        directory.mkdirectory()
+        directory.mkdir()
     current_time = date.isoformat(datetime.now())
     directory = directory / os.path.basename(current_time)
     with open(str(directory), 'wb') as f:
