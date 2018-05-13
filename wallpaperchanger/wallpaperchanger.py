@@ -18,7 +18,7 @@ import requests
 def main():
     """Where the shit happens XD"""
     r = praw.Reddit(user_agent='Wallpaper Downloader')
-    url = next(r.get_subreddit('wallpaper').get_top_from_day(limit=1)).url
+    url = next(r.get_subreddit('earthporn').get_top_from_day(limit=1)).url
     req = requests.get(url, stream=True)
     directory = Path(os.getenv("HOME") + "/Pictures/Wallpapers/")
     if not directory.exists():
