@@ -1,3 +1,7 @@
+"""
+Made this for reading fortude dat files
+read more: man fortune
+"""
 import random
 import struct
 import sys

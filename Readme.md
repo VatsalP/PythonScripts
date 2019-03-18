@@ -1,4 +1,4 @@
 # Some Python scripts
 
-I don't want to make new repositories for them.
-So I made this repository.
+Didn't feel like making individual repos for em so they go here.
+Any Script here is in public domain.
