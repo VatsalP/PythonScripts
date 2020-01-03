@@ -7,7 +7,7 @@ in LXDE & XFCE
 for praw install use this:
 pip3 install --user praw==3.6.2
 """
-!/usr/bin/env python3
+!#/usr/bin/env python3
 import os
 import shlex
 import shutil
