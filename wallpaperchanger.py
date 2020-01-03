@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """wallpaperchanger.py - simple wallpaper changer.
 
 Simple script to download top wallpaper from
@@ -7,7 +8,6 @@ in LXDE & XFCE
 for praw install use this:
 pip3 install --user praw==3.6.2
 """
-!#/usr/bin/env python3
 import os
 import shlex
 import shutil
