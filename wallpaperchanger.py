@@ -3,7 +3,11 @@
 Simple script to download top wallpaper from
 /r/wallpaper and set it as desktop wallpaper
 in LXDE & XFCE
+
+for praw install use this:
+pip3 install --user praw==3.6.2
 """
+!/usr/bin/env python3
 import os
 import shlex
 import shutil
