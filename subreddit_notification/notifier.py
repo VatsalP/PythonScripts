@@ -5,7 +5,7 @@ import re
 from datetime import datetime
 from typing import Sequence, List
 
-import orjson
+import json
 import praw
 import requests
 
@@ -31,7 +31,7 @@ def get_posts(url: str) -> List[Post]:
     """
     headers = {"user-agent": "Subreddit Notification Script"}
     request = requests.get(url, headers=headers)
-    content = orjson.loads(request.content.decode("utf-8"))
+    content = json.loads(request.content.decode("utf-8"))
     posts = []
     with orm.db_session:
         for post in content["data"]["children"]:
